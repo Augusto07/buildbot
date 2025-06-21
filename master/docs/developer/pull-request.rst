@@ -189,6 +189,25 @@ To run locally, execute the following:
 
 If you see spell check errors, but your words are perfectly correct, then you may need to add these words to a whitelist at `master/docs/spelling_wordlist.txt`.
 
+Troubleshooting building the documentation on Ubuntu/WSL
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you encounter the following error when running ``make docs``::
+
+    bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
+    locale.Error: unsupported locale setting
+
+This typically happens on Ubuntu-based systems (including WSL) when the ``en_US.UTF-8`` locale is not generated.
+
+To solve this, on Ubuntu/WSL systems, run:
+
+.. code-block:: bash
+
+    sudo locale-gen en_US.UTF-8
+    sudo update-locale
+
+Then, restart your terminal.
+
 End-to-end tests
 ~~~~~~~~~~~~~~~~
 
